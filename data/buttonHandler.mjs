@@ -99,6 +99,7 @@ export const thirdCheck = (e) => {
   }
 };
 
+//Event Listeners
 todoButton.addEventListener("click", addTodo);
 todoButton.addEventListener("click", () => {
   populateGif();
