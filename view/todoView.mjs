@@ -1,15 +1,7 @@
-const todoInput = document.querySelector(".todo-input");
-const todoButton = document.querySelector(".todo-button");
-const todoLists = document.querySelectorAll(".todo-list");
-const todos = document.querySelectorAll(".todo");
-const todoPlannedList = document.querySelector(".planned");
-const todoInprogressList = document.querySelector(".inprogress");
-const todoDoneList = document.querySelector(".done");
-const WEATHER_API_KEY = "89bda37a8104a7cbacd224a8166ce0a0";
-const GIPHY_API_KEY = "A97cbDPe9Rfd42MJLKtbXxj8jb1uWIT8";
-const searchButton = document.querySelector(".search button");
-const searchBar = document.querySelector(".search-bar");
+import { saveLocalStorage } from "../handler/localStorageHandler.mjs";
 
+const todoInput = document.querySelector(".todo-input");
+const todoPlannedList = document.querySelector(".planned");
 //Add todo to list
 export const addTodo = (event) => {
   //Prevent form from submitting(default)
@@ -31,6 +23,7 @@ export const addTodo = (event) => {
     newTodo.classList.add("todo-item");
     newTodo.contentEditable = "true";
     todoDiv.appendChild(newTodo);
+    saveLocalStorage(todoInput.value);
     //Highlight Button
     const highlightButton = document.createElement("button");
     highlightButton.innerHTML = "<i class='fa-solid fa-highlighter'></i>";
